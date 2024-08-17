@@ -1,0 +1,17 @@
+section {
+  width: 1112px;
+  height: 338px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.data-section {
+  width: 1112px;
+  height: 264px;
+  gap: 24px;
+  display: flex;
+  align-items: center;
+}

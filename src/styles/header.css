@@ -1,0 +1,121 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3e3e3e;
+  width: 100%;
+  height: 96px;
+  top: 211px;
+  left: 165px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 232px;
+  gap: 16px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 24px 48px 24px 48px;
+}
+
+.buscador-perfil {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 48px;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 416px;
+  height: 48px;
+  background: #282828cc;
+  border: 1px solid #ffffff80;
+  border-radius: 8px;
+}
+
+.buscador button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  color: #595656;
+}
+
+.buscador input {
+  border: none;
+  width: 360px;
+  height: 24px;
+  background: none;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #595656;
+  padding-left: 10px;
+}
+
+.buscador input:focus {
+  outline: none;
+  border: none;
+  color: #595656;
+}
+
+.logo button {
+  color: #fff;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+.logo img {
+  width: 106px;
+  height: 32px;
+}
+
+.perfil-cast {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  width: 88px;
+  gap: 8px;
+}
+
+.cast {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cast-icon {
+  size: 32;
+  color: #fff;
+}
+
+.perfil-cast img {
+  width: 48px;
+  height: 48px;
+}

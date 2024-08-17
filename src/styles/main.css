@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0d080b;
+}
+
+.body-container {
+  width: 100%;
+  height: 1505px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  align-content: center;
+}
