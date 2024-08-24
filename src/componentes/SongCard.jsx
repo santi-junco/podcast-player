@@ -1,33 +1,26 @@
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoMdPlay } from "react-icons/io";
-import { SONGS } from "../data/song";
 import "./../styles/songCard.css";
 
-export const SongCard = () => {
+export const SongCard = ({ img, title, description }) => {
   return (
-    <>
-      {SONGS.map((song) => (
-        <div key={song.id} className="song-card">
-          <div className="song-card-imagen">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${song.img})` }}>
-              <div className="buttons">
-                <button className="options">
-                  <SlOptionsVertical color="#fff" />
-                </button>
-                <button className="play">
-                  <IoMdPlay size={25} />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="song-card-data">
-            <span className="title">{song.title}</span>
-            <p className="description">{song.description}</p>
+    <div className="song-card">
+      <div className="song-card-imagen">
+        <div className="img" style={{ backgroundImage: `url(${img})` }}>
+          <div className="buttons">
+            <button className="options">
+              <SlOptionsVertical color="#fff" />
+            </button>
+            <button className="play">
+              <IoMdPlay size={25} />
+            </button>
           </div>
         </div>
-      ))}
-    </>
+      </div>
+      <div className="song-card-data">
+        <span className="title">{title}</span>
+        <p className="description">{description}</p>
+      </div>
+    </div>
   );
 };

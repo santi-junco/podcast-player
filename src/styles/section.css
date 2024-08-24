@@ -13,5 +13,6 @@ section {
   height: 264px;
   gap: 24px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }

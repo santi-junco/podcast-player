@@ -1,19 +1,14 @@
 import React from "react";
-import { ARTISTS } from "../data/artist";
 import "./../styles/artistiCard.css";
 
-export const ArtistCard = () => {
+export const ArtistCard = ({ title, description, img }) => {
   return (
-    <>
-      {ARTISTS.map((artist) => (
-        <div key={artist.id} className="artist-card">
-          <img src={artist.img} alt="" />
-          <div className="artist-data">
-            <span className="artist-name">{artist.title}</span>
-            <p className="artist-description">{artist.description}</p>
-          </div>
-        </div>
-      ))}
-    </>
+    <div className="artist-card">
+      <img src={img} alt="" />
+      <div className="artist-data">
+        <span className="artist-name">{title}</span>
+        <p className="artist-description">{description}</p>
+      </div>
+    </div>
   );
 };

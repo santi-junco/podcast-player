@@ -21,7 +21,7 @@ export const HeaderSections = ({
         </div>
       </div>
       <div className="buttons">
-        {playAll ? <button className="play-all">Play all</button> : ""}
+        {playAll && <button className="play-all">Play all</button>}
         <div className="controls">
           <button className="previous">
             <GrFormPrevious size={40} color="#d9d9d9" />{" "}

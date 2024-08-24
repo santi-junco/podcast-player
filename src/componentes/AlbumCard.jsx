@@ -1,33 +1,26 @@
 import { SlOptionsVertical } from "react-icons/sl";
 import { IoMdPlay } from "react-icons/io";
-import { ALBUMS } from "../data/albums.js";
 import "./../styles/albumCard.css";
 
-export const AlbumCard = () => {
+export const AlbumCard = ({ title, description, img }) => {
   return (
-    <>
-      {ALBUMS.map((album) => (
-        <div key={album.id} className="card">
-          <div className="album-card-imagen">
-            <div
-              className="img"
-              style={{ backgroundImage: `url(${album.img})` }}>
-              <div className="buttons">
-                <button className="options">
-                  <SlOptionsVertical color="#fff" />
-                </button>
-                <button className="play">
-                  <IoMdPlay size={25} />
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="album-card-data">
-            <span className="title">{album.title}</span>
-            <p className="description">{album.description}</p>
+    <div className="card">
+      <div className="album-card-imagen">
+        <div className="img" style={{ backgroundImage: `url(${img})` }}>
+          <div className="buttons">
+            <button className="options">
+              <SlOptionsVertical color="#fff" />
+            </button>
+            <button className="play">
+              <IoMdPlay size={25} />
+            </button>
           </div>
         </div>
-      ))}
-    </>
+      </div>
+      <div className="album-card-data">
+        <span className="title">{title}</span>
+        <p className="description">{description}</p>
+      </div>
+    </div>
   );
 };
