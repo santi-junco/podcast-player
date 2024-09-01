@@ -1,8 +1,15 @@
+import { useState } from "react";
+
+import { Header } from "./Header";
+import { PlayBar } from "./PlayBar";
 import { Section } from "./Section.jsx";
+import { Sidebar } from "./Sidebar.jsx";
 import { SongCard } from "./SongCard.jsx";
 import { AlbumCard } from "./AlbumCard.jsx";
 import { QuickCard } from "./QuickCard.jsx";
 import { ArtistCard } from "./ArtistCard.jsx";
+import { PlaylistForm } from "./PlaylistForm.jsx";
+import { PlaylistCard } from "./PlaylistCard.jsx";
 
 import { ALBUMS, ALBUMS_HEADER } from "../data/albums.js";
 import { ARTIST_HEADER, ARTISTS } from "../data/artist.js";
@@ -19,11 +26,34 @@ const DATA = [
 ];
 
 export const Home = () => {
+  const [playlists, setPlaylists] = useState([]);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleNewPlaylist = () => {
+    setShowForm(true);
+  };
+
+  const handleSavePlaylist = (playlist) => {
+    setPlaylists([...playlists, playlist]);
+    setShowForm(false);
+  };
+
   return (
-    <div className="body-container">
-      {DATA.map((data) => (
-        <Section key={data.id} {...data} />
-      ))}
-    </div>
+    <>
+      <Header />
+      <div className="body-container">
+        <div className="sidebar-container">
+          <Sidebar onNewPlaylist={handleNewPlaylist} playlists={playlists}/>
+        </div>
+        <div className="content-conteiner">
+          {showForm ? (
+            <PlaylistForm onSave={handleSavePlaylist} />
+          ) : (
+            DATA.map((data) => <Section key={data.id} {...data} />)
+          )}
+        </div>
+      </div>
+      <PlayBar />
+    </>
   );
 };
