@@ -15,7 +15,7 @@
 }
 
 .artist-data {
-  width: 139px;
+  width: 100%;
   height: 42px;
   display: flex;
   flex-direction: column;

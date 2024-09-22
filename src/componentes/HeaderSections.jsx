@@ -6,6 +6,8 @@ export const HeaderSections = ({
   title,
   placeholder,
   srcImgPerfil,
+  onNext,
+  onPrev
 }) => {
   return (
     <header>
@@ -23,10 +25,10 @@ export const HeaderSections = ({
       <div className="buttons">
         {playAll && <button className="play-all">Play all</button>}
         <div className="controls">
-          <button className="previous">
+          <button className="previous" onClick={onPrev}>
             <GrFormPrevious size={40} color="#d9d9d9" />{" "}
           </button>
-          <button className="next">
+          <button className="next" onClick={onNext}>
             <GrFormPrevious size={40} />
           </button>
         </div>
