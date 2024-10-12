@@ -8,13 +8,19 @@ import "./../styles/albumCard.css";
 
 export const AlbumCard = (podcast) => {
   const { title, description, channel, urls } = podcast
-  const { isPlaying, playAudio, pauseAudio, currentUrl } = useAudio();
+  const { isPlaying, playAudio, pauseAudio, currentUrl, currentTrack } = useAudio();
+
+  const isCurrentTrack = currentTrack?.url === urls.high_mp3
 
   const handlePlayPause = () => {
-    if (currentUrl === urls.high_mp3 && isPlaying) {
-      pauseAudio(); 
+    if (isCurrentTrack && isPlaying) {
+      pauseAudio()
     } else {
-      playAudio(urls.high_mp3);
+      playAudio({
+        url: urls.high_mp3,
+        title: title,
+        image: channel.urls.logo_image.original
+      })
     }
   };
 
@@ -26,8 +32,8 @@ export const AlbumCard = (podcast) => {
             <button className="options">
               <SlOptionsVertical color="#fff" />
             </button>
-            <button className={isPlaying && currentUrl === urls.high_mp3 ? "pause" : "play"} onClick={handlePlayPause}>
-              {isPlaying && currentUrl === urls.high_mp3 ? <IoMdPause size={25} /> : <IoMdPlay size={25} />}
+            <button className={isCurrentTrack && isPlaying ? "pause" : "play"} onClick={handlePlayPause}>
+              {isCurrentTrack && isPlaying ? <IoMdPause size={25} /> : <IoMdPlay size={25} />}
             </button>
           </div>
         </div>
