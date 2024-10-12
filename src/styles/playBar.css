@@ -12,7 +12,7 @@
 .container-play-bar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 95%;
   height: 72px;
   gap: 31px;
@@ -21,7 +21,7 @@
 .controles {
   display: flex;
   align-items: center;
-  width: 181px;
+  width: 200px;
   height: 40px;
   gap: 8px;
 }
@@ -36,7 +36,7 @@
 
 .controles p {
   margin: 0;
-  width: 69px;
+  width: 100%;
   height: 24px;
   font-family: "Inter";
   font-weight: 400;
@@ -52,6 +52,10 @@
   height: 48px;
   width: 1039px;
   gap: 8px;
+}
+
+.cancion-info img {
+  height: 70px;
 }
 
 .container-cancion {

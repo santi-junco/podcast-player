@@ -12,7 +12,7 @@ export const HeaderSections = ({
   return (
     <header>
       <div className="category-title">
-        <img src={srcImgPerfil} alt="perfil" />
+        <img src="/perfil.png" alt="perfil" />
         <div className="category-title-data">
           {placeholder ? (
             <span className="placeholder">{placeholder}</span>

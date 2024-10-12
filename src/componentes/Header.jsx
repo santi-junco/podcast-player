@@ -9,7 +9,7 @@ export const Header = () => {
           <FaBars size={32} />
         </button>
         <a href="#">
-          <img src="src/media/logo.png" alt="logo" />
+          <img src="/logo.png" alt="logo" />
         </a>
       </div>
       <div className="container">
@@ -25,7 +25,7 @@ export const Header = () => {
               <FaChromecast className="cast-icon" />
             </button>
             <a href="#">
-              <img src="src/media/perfil.png" alt="perfil" />
+              <img src="/perfil.png" alt="perfil" />
             </a>
           </div>
         </div>

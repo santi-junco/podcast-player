@@ -1,62 +1,66 @@
-import { BiDislike, BiLike } from "react-icons/bi";
-import { SlOptionsVertical } from "react-icons/sl";
-import { TbPointFilled } from "react-icons/tb";
-import { RiRepeatFill } from "react-icons/ri";
-import { MdOutlineVolumeUp, MdSkipPrevious, MdSkipNext } from "react-icons/md";
-import { IoMdArrowDropdown, IoMdPlay } from "react-icons/io";
+import { MdSkipPrevious, MdSkipNext } from "react-icons/md";
+import { IoMdPause, IoMdPlay } from "react-icons/io";
+import { useAudio } from "../contexts/AudioContext";
 import "../styles/playBar.css";
 
 export const PlayBar = () => {
+  const {
+    isPlaying,
+    currentTrack,
+    playAudio,
+    pauseAudio,
+    skipForward,
+    skipBackward,
+    currentTime,
+    duration
+  } = useAudio();
+
+  const handlePlayPause = () => {
+    if (isPlaying) {
+      pauseAudio();
+    } else if (currentTrack) {
+      playAudio(currentTrack);
+    }
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60)
+    const seconds = Math.floor(time % 60).toString().padStart(2, '0')
+    return `${minutes}:${seconds}`
+  }
+
   return (
     <div className="play-bar">
       <div className="container-play-bar">
         <div className="controles">
-          <button>
+          <button onClick={() => skipBackward(10)}>
             <MdSkipPrevious size={24} color="#fff" />
           </button>
-          <button>
-            <IoMdPlay size={40} color="#fff" />
+          <button onClick={handlePlayPause}>
+            {isPlaying ? (
+              <IoMdPause size={40} color="#fff" />
+            ): (
+              <IoMdPlay size={40} color="#fff" />
+            )}
           </button>
-          <button>
+          <button onClick={() => skipForward(10)}>
             <MdSkipNext size={24} color="#fff" />
           </button>
-          <p>0:10 / 0:41</p>
+          <p>{formatTime(currentTime)} / {formatTime(duration)}</p>
         </div>
         <div className="cancion-info">
-          <img src="src/media/Rectangle 2.png" alt="" />
-          <div className="container-cancion">
-            <div className="info-cancion">
-              <p>Listen Again</p>
-              <span>
-                Mufambi - The African Traveller <TbPointFilled /> 37K views{" "}
-                <TbPointFilled /> 603 likes
-              </span>
-            </div>
-            <div className="opciones-cancion">
-              <button>
-                <BiDislike size={18} color="#fff" />
-              </button>
-              <button>
-                <BiLike size={18} color="#fff" />
-              </button>
-              <button>
-                <SlOptionsVertical size={18} color="#fff" />
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="otros-controles">
-          <button>
-            <RiRepeatFill size={32} color="#fff" />
-          </button>
-          <button>
-            <MdOutlineVolumeUp size={32} color="#fff" />
-          </button>
-          <button>
-            <IoMdArrowDropdown size={32} color="#fff" />
-          </button>
+          {currentTrack ? (
+            <>
+              <img src={currentTrack.image} alt="Cover" />
+              <div className="container-cancion">
+                <div className="info-cancion">
+                  <span>{currentTrack?.title}</span>
+                </div>
+              </div>
+            </>
+          ) : (<span style={{color: "#fff"}}>No track selected</span>)}
         </div>
       </div>
     </div>
-  );
+  )
 };
